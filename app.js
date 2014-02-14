@@ -58,8 +58,9 @@ function route(event) {
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
 function merge(tpl, data) {
     return tpl.replace("{{img}}", data.img)
-              .replace("{{name}}", data.name)
-              .replace("{{description}}", data.description);
+		    .replace("{{name}}", data.name)
+		    .replace("{{title}}", data.title)
+            .replace("{{description}}", data.description);
 }
 
 route();
