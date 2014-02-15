@@ -8,6 +8,7 @@
 <body>
 <br/>
 <h1 align="center">Metro Y Bus</h1>
+<div id="map-canvas"></div>
 <div id="container"></div>
 
 <script src="lib/cordova-2.5.0.js"></script>
@@ -26,7 +27,8 @@
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
-      }
+    }
+	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </body>
 </html>

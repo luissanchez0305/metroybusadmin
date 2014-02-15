@@ -41,7 +41,7 @@ function route(event) {
         	img: "Bus-icon.jpg", 
         	title: "Paradas", 
         	name: "Presione en el mapa donde esta la parada", 
-        	description: "<div id=\"map-canvas\"/><script>google.maps.event.addDomListener(window, 'load', initialize);</script>"
+        	description: "{{Aqui va el mapa}}"
         });
 //        slider.slide($(page), "right");
     } else if (hash === "#page2") {
@@ -49,7 +49,7 @@ function route(event) {
         	img: "busroute.jpg", 
         	title: "Rutas", 
         	name: "Trace la ruta", 
-        	description: "<div id=\"map-canvas\"/><script>google.maps.event.addDomListener(window, 'load', initialize);</script>"
+        	description: "{{Aqui va el mapa}}"
         });
 //        slider.slide($(page), "right");
     } /*else if (hash === "#page3") {
