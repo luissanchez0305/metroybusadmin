@@ -21,7 +21,7 @@ var detailsPage =
         '<div class="scroller">' +
             '<div class="robot">' +
                 '<img src="images/{{img}}" width="25" height="25"/>' +
-                '<h2>{{name}}</h2>' +
+                '<h2>{{name}}1</h2>' +
                 '<p>{{description}}</p>' +
             '</div>' +
         '</div>' +
