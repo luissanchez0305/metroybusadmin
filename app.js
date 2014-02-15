@@ -20,7 +20,7 @@ var detailsPage =
         '<div class="header"><a href="#" class="btn">Atras</a><h1>{{title}}</h1></div>' +
         '<div class="scroller">' +
             '<div class="robot">' +
-                '<img src="images/{{img}}" width="50" height="50"/>' +
+                '<img src="images/{{img}}" width="25" height="25"/>' +
                 '<h2>{{name}}</h2>' +
                 '<p>{{description}}</p>' +
             '</div>' +
