@@ -37,10 +37,20 @@ function route(event) {
         hash = window.location.hash;
 
     if (hash === "#page1") {
-        page = merge(detailsPage, {img: "Bus-icon.jpg", title: "Paradas", name: "Presione en el mapa donde esta la parada", description: "{{Aqui va el mapa}}"});
+        page = merge(detailsPage, {
+        	img: "Bus-icon.jpg", 
+        	title: "Paradas", 
+        	name: "Presione en el mapa donde esta la parada", 
+        	description: "<div id=\"map-canvas\"/><script>google.maps.event.addDomListener(window, 'load', initialize);</script>"
+        });
 //        slider.slide($(page), "right");
     } else if (hash === "#page2") {
-        page = merge(detailsPage, {img: "busroute.jpg", title: "Rutas", name: "Trace la ruta", description: "{{Aqui va el mapa}}"});
+        page = merge(detailsPage, {
+        	img: "busroute.jpg", 
+        	title: "Rutas", 
+        	name: "Trace la ruta", 
+        	description: "<div id=\"map-canvas\"/><script>google.maps.event.addDomListener(window, 'load', initialize);</script>"
+        });
 //        slider.slide($(page), "right");
     } /*else if (hash === "#page3") {
         page = merge(detailsPage, {img: "ripplebot.jpg", name: "Ripple Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
