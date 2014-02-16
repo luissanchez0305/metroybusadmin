@@ -71,6 +71,7 @@ function route(event) {
 	var onSuccess = function(position) {
 	   lat = position.coords.latitude;
 	   lng = position.coords.longitude;
+	   alert(lat + ' ' + lng);
 	}
 	//onError Callback receives a PositionError object
 	//
