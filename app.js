@@ -39,7 +39,7 @@ function route(event) {
         page = merge(detailsPage, {
         	img: "Bus-icon.jpg", 
         	title: "Paradas", 
-        	instructions: "Presiona la parada en el mapa", 
+        	instructions: "Click en la parada", 
         	map: "<div id=\"map1\" class=\"map-canvas\"></div>"
         });
         mapId="map1";
