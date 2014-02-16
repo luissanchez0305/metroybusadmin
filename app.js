@@ -49,12 +49,13 @@ function route(event) {
 	   alert('code: '    + error.code    + '\n' +
 	         'message: ' + error.message + '\n');
 	}
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	
     if (hash === "#page1") {
         page = merge(detailsPage, {
         	img: "Bus-icon.jpg", 
         	title: "Paradas", 
-        	instructions: "Presione en el mapa donde esta la parada", 
+        	instructions: "Presiona la parada en el mapa", 
         	map: "<div id=\"map1\" class=\"map-canvas\"></div>"
         });
     	map="map1";
@@ -63,7 +64,7 @@ function route(event) {
         page = merge(detailsPage, {
         	img: "busroute.jpg", 
         	title: "Rutas", 
-        	instructions: "Trace la ruta", 
+        	instructions: "Traza la ruta", 
         	map: "<div id=\"map2\" class=\"map-canvas\"></div>"
         });
     	map="map2";
@@ -78,15 +79,13 @@ function route(event) {
     }
 
     slider.slidePage($(page));   
-    
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    alert(lat + '' + lng);
 	var mapOptions = {
       center: new google.maps.LatLng(lat, lng),
       zoom: 8
     };
 	
-    var map = new google.maps.Map(document.getElementById(map),
-        mapOptions);
+    var map = new google.maps.Map(document.getElementById(map), mapOptions);
     //google.maps.event.addDomListener(window, 'load', initialize);	
 }
 
