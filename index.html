@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<style>
+	.map-canvas { height: 100%; }
+</style>
 <br/>
 <h1 align="center">Metro Y Bus</h1>
-<div id="map-canvas"></div>
 <div id="container"></div>
 
 <script src="lib/cordova-2.5.0.js"></script>
@@ -16,20 +18,8 @@
 <script src="lib/jquery-1.9.1.min.js"></script>
 <script src="pageslider.js"></script>
 <script src="app.js"></script>
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTcbOHp-YBKVSVqG7e6xzfrzec7fJtI_o&sensor=true">
-</script>
-<script type="text/javascript">
-	function initialize() {
-		alert();
-    	var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-    }
-	google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTcbOHp-YBKVSVqG7e6xzfrzec7fJtI_o&sensor=true">
+	</script>
 </body>
 </html>

@@ -34,23 +34,26 @@ $(window).on('hashchange', route);
 // Basic page routing
 function route(event) {
     var page,
-        hash = window.location.hash;
+        hash = window.location.hash,
+        map;
 
     if (hash === "#page1") {
         page = merge(detailsPage, {
         	img: "Bus-icon.jpg", 
         	title: "Paradas", 
         	name: "Presione en el mapa donde esta la parada", 
-        	description: "{{Aqui va el mapa}}"
+        	description: "<div id=\"map1\" class=\"map-canvas\"></div>"
         });
+    	map="map1";
 //        slider.slide($(page), "right");
     } else if (hash === "#page2") {
         page = merge(detailsPage, {
         	img: "busroute.jpg", 
         	title: "Rutas", 
         	name: "Trace la ruta", 
-        	description: "{{Aqui va el mapa}}"
+        	description: "<div id=\"map2\" class=\"map-canvas\"></div>"
         });
+    	map="map1";
 //        slider.slide($(page), "right");
     } /*else if (hash === "#page3") {
         page = merge(detailsPage, {img: "ripplebot.jpg", name: "Ripple Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
@@ -63,10 +66,20 @@ function route(event) {
 
     slider.slidePage($(page));
 
+	var mapOptions = {
+      center: new google.maps.LatLng(-34.397, 150.644),
+      zoom: 8
+    };
+	
+    var map = new google.maps.Map(document.getElementById(map),
+        mapOptions);
+    //google.maps.event.addDomListener(window, 'load', initialize);
+
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
 function merge(tpl, data) {
+    
     return tpl.replace("{{img}}", data.img)
 		    .replace("{{name}}", data.name)
 		    .replace("{{title}}", data.title)
