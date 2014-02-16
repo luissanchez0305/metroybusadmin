@@ -30,7 +30,7 @@ a {
     top: 0px;
     left: 0px;
     right: 0px;
-    height: 44px;
+    height: 10%;
     background: #109adc;
     color: #FFFFFF;
     border-bottom: 1px solid #0E5895;;
@@ -75,6 +75,7 @@ a {
     left: 0px;
     right: 0;
     bottom: 0;
+    height:90%;
 }
 
 .list {
