@@ -33,7 +33,7 @@ $(window).on('hashchange', route);
 function route(event) {
     var page,
         hash = window.location.hash,
-        map;
+        mapId;
 	
     if (hash === "#page1") {
         page = merge(detailsPage, {
@@ -42,7 +42,7 @@ function route(event) {
         	instructions: "Presiona la parada en el mapa", 
         	map: "<div id=\"map1\" class=\"map-canvas\"></div>"
         });
-    	map="map1";
+        mapId="map1";
 //        slider.slide($(page), "right");
     } else if (hash === "#page2") {
         page = merge(detailsPage, {
@@ -51,7 +51,7 @@ function route(event) {
         	instructions: "Traza la ruta", 
         	map: "<div id=\"map2\" class=\"map-canvas\"></div>"
         });
-    	map="map2";
+        mapId="map2";
 //        slider.slide($(page), "right");
     } /*else if (hash === "#page3") {
         page = merge(detailsPage, {img: "ripplebot.jpg", name: "Ripple Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
@@ -75,8 +75,8 @@ function route(event) {
 			      center: new google.maps.LatLng(lat, lng),
 			      zoom: 8
 			    };
-				
-		var map = new google.maps.Map(document.getElementById(map), mapOptions);
+		alert(mapId);
+		var map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 			    //google.maps.event.addDomListener(window, 'load', initialize);	
 	}
 	
