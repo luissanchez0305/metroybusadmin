@@ -21,19 +21,16 @@
 -->
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "org.coenraets.pageslider"
+        xmlns:android   = "http://schemas.android.com/apk/res/android"
+        id = "org.coenraets.pageslider"
         versionCode="10" 
         version   = "1.0.0">
 
-    <name>Page Slider</name>
+    <name>Metro y Bus Admin</name>
 
-    <description>
-        An application demonstrating hardware accelerated page transitions. 
-    </description>
+    <description>Administrador para la alimentacion de data de Metro y Bus Panama</description>
 
-    <author href="https://coenraets.org" email="ccoenraets@gmail.com">
-        Christophe Coenraets
-    </author>
+    <author href="https://www.espherasoluciones.com" email="lsanchez@espherasoluciones.com">Ing. Luis Ricardo Sanchez Tenas</author>
 
 
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
@@ -49,6 +46,7 @@
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
+    <preference name="orienation" value="portrait" />
 
     <content src="index.html" />
 
