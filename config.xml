@@ -29,6 +29,7 @@
     <name>Metro y Bus Admin</name>
 
     <description>Administrador para la alimentacion de data de Metro y Bus Panama</description>
+    <icon src="icon.png" />
 
     <author href="https://www.espherasoluciones.com" email="lsanchez@espherasoluciones.com">Ing. Luis Ricardo Sanchez Tenas</author>
 
