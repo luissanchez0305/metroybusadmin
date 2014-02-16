@@ -71,13 +71,19 @@ function route(event) {
 	var onSuccess = function(position) {
 		var lat = position.coords.latitude;
 	   	var lng = position.coords.longitude;
+	    var myLatlng = new google.maps.LatLng(lat,lng);
 		var mapOptions = {
-			      center: new google.maps.LatLng(lat, lng),
-			      zoom: 8
+			      center: myLatlng,
+			      zoom: 12
 			    };
-		alert(mapId);
+		
 		var map = new google.maps.Map(document.getElementById(mapId), mapOptions);
-			    //google.maps.event.addDomListener(window, 'load', initialize);	
+		var marker = new google.maps.Marker({
+		      position: myLatlng,
+		      map: map,
+		      title: 'Tu estas aqui'
+		  });
+		//google.maps.event.addDomListener(window, 'load', initialize);	
 	}
 	
 	//onError Callback receives a PositionError object
