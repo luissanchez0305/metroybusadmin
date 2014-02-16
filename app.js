@@ -33,8 +33,23 @@ $(window).on('hashchange', route);
 function route(event) {
     var page,
         hash = window.location.hash,
-        map;
+        map, lat, lng;
 
+    // onSuccess Callback
+	//  This method accepts a `Position` object, which contains
+	//  the current GPS coordinates
+	//
+	var onSuccess = function(position) {
+	   lat = position.coords.latitude;
+	   lng = position.coords.longitude;
+	}
+	//onError Callback receives a PositionError object
+	//
+	function onError(error) {
+	   alert('code: '    + error.code    + '\n' +
+	         'message: ' + error.message + '\n');
+	}
+	
     if (hash === "#page1") {
         page = merge(detailsPage, {
         	img: "Bus-icon.jpg", 
@@ -64,23 +79,6 @@ function route(event) {
 
     slider.slidePage($(page));   
     
-    // onSuccess Callback
-	//  This method accepts a `Position` object, which contains
-	//  the current GPS coordinates
-	//
-	var onSuccess = function(position) {
-	   lat = position.coords.latitude;
-	   lng = position.coords.longitude;
-	   alert(lat + ' ' + lng);
-	}
-	//onError Callback receives a PositionError object
-	//
-	function onError(error) {
-	   alert('code: '    + error.code    + '\n' +
-	         'message: ' + error.message + '\n');
-	}
-    var lat, lng;
-
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	var mapOptions = {
       center: new google.maps.LatLng(lat, lng),
