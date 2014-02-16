@@ -33,23 +33,7 @@ $(window).on('hashchange', route);
 function route(event) {
     var page,
         hash = window.location.hash,
-        map, lat, lng;
-
-    // onSuccess Callback
-	//  This method accepts a `Position` object, which contains
-	//  the current GPS coordinates
-	//
-	var onSuccess = function(position) {
-	   lat = position.coords.latitude;
-	   lng = position.coords.longitude;
-	}
-	//onError Callback receives a PositionError object
-	//
-	function onError(error) {
-	   alert('code: '    + error.code    + '\n' +
-	         'message: ' + error.message + '\n');
-	}
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        map;
 	
     if (hash === "#page1") {
         page = merge(detailsPage, {
@@ -79,14 +63,30 @@ function route(event) {
     }
 
     slider.slidePage($(page));   
-    alert(lat + '' + lng);
-	var mapOptions = {
-      center: new google.maps.LatLng(lat, lng),
-      zoom: 8
-    };
+    
+    // onSuccess Callback
+	//  This method accepts a `Position` object, which contains
+	//  the current GPS coordinates
+	//
+	var onSuccess = function(position) {
+		var lat = position.coords.latitude;
+	   	var lng = position.coords.longitude;
+		var mapOptions = {
+			      center: new google.maps.LatLng(lat, lng),
+			      zoom: 8
+			    };
+				
+		var map = new google.maps.Map(document.getElementById(map), mapOptions);
+			    //google.maps.event.addDomListener(window, 'load', initialize);	
+	}
 	
-    var map = new google.maps.Map(document.getElementById(map), mapOptions);
-    //google.maps.event.addDomListener(window, 'load', initialize);	
+	//onError Callback receives a PositionError object
+	//
+	function onError(error) {
+	   alert('code: '    + error.code    + '\n' +
+	         'message: ' + error.message + '\n');
+	}
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
