@@ -62,18 +62,9 @@ function route(event) {
 //        slider.slide($(homePage), "left");
     }
 
-    slider.slidePage($(page));
-    var lat, lng;
-
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
-	var mapOptions = {
-      center: new google.maps.LatLng(lat, lng),
-      zoom: 12
-    };
-	
-    var map = new google.maps.Map(document.getElementById(map),
-        mapOptions);
-    //google.maps.event.addDomListener(window, 'load', initialize);// onSuccess Callback
+    slider.slidePage($(page));   
+    
+    // onSuccess Callback
 	//  This method accepts a `Position` object, which contains
 	//  the current GPS coordinates
 	//
@@ -87,7 +78,17 @@ function route(event) {
 	   alert('code: '    + error.code    + '\n' +
 	         'message: ' + error.message + '\n');
 	}
+    var lat, lng;
+
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	var mapOptions = {
+      center: new google.maps.LatLng(lat, lng),
+      zoom: 12
+    };
 	
+    var map = new google.maps.Map(document.getElementById(map),
+        mapOptions);
+    //google.maps.event.addDomListener(window, 'load', initialize);	
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
