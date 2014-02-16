@@ -63,10 +63,12 @@ function route(event) {
     }
 
     slider.slidePage($(page));
+    var lat, lng;
 
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	var mapOptions = {
-      center: new google.maps.LatLng(-34.397, 150.644),
-      zoom: 8
+      center: new google.maps.LatLng(lat, lng),
+      zoom: 12
     };
 	
     var map = new google.maps.Map(document.getElementById(map),
@@ -76,16 +78,9 @@ function route(event) {
 	//  the current GPS coordinates
 	//
 	var onSuccess = function(position) {
-	   alert('Latitude: '          + position.coords.latitude          + '\n' +
-	         'Longitude: '         + position.coords.longitude         + '\n' +
-	         'Altitude: '          + position.coords.altitude          + '\n' +
-	         'Accuracy: '          + position.coords.accuracy          + '\n' +
-	         'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-	         'Heading: '           + position.coords.heading           + '\n' +
-	         'Speed: '             + position.coords.speed             + '\n' +
-	         'Timestamp: '         + position.timestamp                + '\n');
-	};
-	
+	   var lat = position.coords.latitude;
+	   var lng = position.coords.longitude;
+	}
 	//onError Callback receives a PositionError object
 	//
 	function onError(error) {
@@ -93,7 +88,6 @@ function route(event) {
 	         'message: ' + error.message + '\n');
 	}
 	
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
