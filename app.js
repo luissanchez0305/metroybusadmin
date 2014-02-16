@@ -69,8 +69,8 @@ function route(event) {
 	//  the current GPS coordinates
 	//
 	var onSuccess = function(position) {
-	   var lat = position.coords.latitude;
-	   var lng = position.coords.longitude;
+	   lat = position.coords.latitude;
+	   lng = position.coords.longitude;
 	}
 	//onError Callback receives a PositionError object
 	//
