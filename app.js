@@ -82,7 +82,7 @@ function route(event) {
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	var mapOptions = {
       center: new google.maps.LatLng(lat, lng),
-      zoom: 12
+      zoom: 8
     };
 	
     var map = new google.maps.Map(document.getElementById(map),
