@@ -7,6 +7,8 @@ body {
     margin: 0px;
     font: 14px sans-serif;
     background-color: #EAEAEA;
+    overflow-x: hidden; 
+    overflow-y: hidden;
 }
 
 a {
@@ -16,6 +18,12 @@ a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.titleIcon{
+    float: left;
+    width: 17px;
+    height: 17px;
+	margin-right: 5px;
+}
 
 .header {
     position: absolute;
@@ -26,6 +34,15 @@ a {
     background: #109adc;
     color: #FFFFFF;
     border-bottom: 1px solid #0E5895;;
+}
+
+.header > h1{
+	float: left;
+}
+
+.header > img.titleIcon{
+	margin-left: 20%;
+	margin-top: 12px;
 }
 
 .header h1 {
@@ -84,12 +101,6 @@ a {
 
 .robot {
     padding: 0px;
-}
-
-.robot>img {
-    float: left;
-    width: 25px;
-    height: 25px;
 }
 
 .robot > p {

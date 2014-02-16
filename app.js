@@ -8,8 +8,8 @@ var homePage =
         '<div class="header"><h1>Administrador</h1></div>' +
         '<div class="scroller">' +
             '<ul class="list">' +
-                '<li><a href="#page1"><strong>Paradas</strong></a></li>' +
-                '<li><a href="#page2"><strong>Rutas</strong></a></li>' +
+                '<li><a href="#page1"><img src="images/Bus-icon.jpg" class="titleIcon"/><strong>Paradas</strong></a></li>' +
+                '<li><a href="#page2"><img src="images/busroute.jpg" class="titleIcon"/><strong>Rutas</strong></a></li>' +
                 '<li style="display:none;"><a href="#page3"><strong>Ripple Bot</strong></a></li>' +
             '</ul>' +
         '</div>' +
@@ -17,12 +17,10 @@ var homePage =
 
 var detailsPage =
     '<div>' +
-        '<div class="header"><a href="#" class="btn">Atras</a><h1>{{title}}</h1></div>' +
+        '<div class="header"><a href="#" class="btn">Atras</a><img src="images/{{img}}" class="titleIcon"/><h1>{{title}} - {{instructions}}</h1></div>' +
         '<div class="scroller">' +
             '<div class="robot">' +
-                '<img src="images/{{img}}" width="25" height="25"/>' +
-                '<h2>{{name}}</h2>' +
-                '<p>{{description}}</p>' +
+                '{{map}}' +
             '</div>' +
         '</div>' +
     '</div>';
@@ -41,8 +39,8 @@ function route(event) {
         page = merge(detailsPage, {
         	img: "Bus-icon.jpg", 
         	title: "Paradas", 
-        	name: "Presione en el mapa donde esta la parada", 
-        	description: "<div id=\"map1\" class=\"map-canvas\"></div>"
+        	instructions: "Presione en el mapa donde esta la parada", 
+        	map: "<div id=\"map1\" class=\"map-canvas\"></div>"
         });
     	map="map1";
 //        slider.slide($(page), "right");
@@ -50,10 +48,10 @@ function route(event) {
         page = merge(detailsPage, {
         	img: "busroute.jpg", 
         	title: "Rutas", 
-        	name: "Trace la ruta", 
-        	description: "<div id=\"map2\" class=\"map-canvas\"></div>"
+        	instructions: "Trace la ruta", 
+        	map: "<div id=\"map2\" class=\"map-canvas\"></div>"
         });
-    	map="map1";
+    	map="map2";
 //        slider.slide($(page), "right");
     } /*else if (hash === "#page3") {
         page = merge(detailsPage, {img: "ripplebot.jpg", name: "Ripple Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
@@ -73,17 +71,38 @@ function route(event) {
 	
     var map = new google.maps.Map(document.getElementById(map),
         mapOptions);
-    //google.maps.event.addDomListener(window, 'load', initialize);
-
+    //google.maps.event.addDomListener(window, 'load', initialize);// onSuccess Callback
+	//  This method accepts a `Position` object, which contains
+	//  the current GPS coordinates
+	//
+	var onSuccess = function(position) {
+	   alert('Latitude: '          + position.coords.latitude          + '\n' +
+	         'Longitude: '         + position.coords.longitude         + '\n' +
+	         'Altitude: '          + position.coords.altitude          + '\n' +
+	         'Accuracy: '          + position.coords.accuracy          + '\n' +
+	         'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+	         'Heading: '           + position.coords.heading           + '\n' +
+	         'Speed: '             + position.coords.speed             + '\n' +
+	         'Timestamp: '         + position.timestamp                + '\n');
+	};
+	
+	//onError Callback receives a PositionError object
+	//
+	function onError(error) {
+	   alert('code: '    + error.code    + '\n' +
+	         'message: ' + error.message + '\n');
+	}
+	
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
 function merge(tpl, data) {
     
     return tpl.replace("{{img}}", data.img)
-		    .replace("{{name}}", data.name)
+		    .replace("{{instructions}}", data.instructions)
 		    .replace("{{title}}", data.title)
-            .replace("{{description}}", data.description);
+            .replace("{{map}}", data.map);
 }
 
 route();
