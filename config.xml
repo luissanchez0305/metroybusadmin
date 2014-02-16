@@ -46,7 +46,7 @@
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
-    <preference name="orienation" value="portrait" />
+    <preference name="Orienation" value="portrait" />
 
     <content src="index.html" />
 
