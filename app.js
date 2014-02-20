@@ -82,8 +82,21 @@ function route(event) {
 		      position: myLatlng,
 		      map: map,
 		      title: 'Tu estas aqui'
-		  });
+		});
+		
+		google.maps.event.addListener(map, 'click', function(event) {
+		    placeMarker(event.latLng);
+		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
+	}
+	
+	function placeMarker(location) {
+		var marker = new google.maps.Marker({
+		    position: location,
+		    map: map
+		});
+
+		map.setCenter(location);
 	}
 	
 	//onError Callback receives a PositionError object
