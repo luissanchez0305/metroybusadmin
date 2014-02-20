@@ -69,6 +69,31 @@ function route(event) {
 	//  the current GPS coordinates
 	//
 	var onSuccess = function(position) {
+		loadMap(position);
+	}
+	
+	function placeMarker(location) {
+		var marker = new google.maps.Marker({
+		    position: location,
+		    map: map
+		});
+
+		map.setCenter(location);
+	}
+	
+	//onError Callback receives a PositionError object
+	//
+	function onError(error) {
+		if(error.code == 1){
+			
+		}else{
+			   alert('code: '    + error.code    + '\n' +
+				         'message: ' + error.message + '\n');
+			
+		}
+	}
+	function loadMap(location){
+		alert(position.coords.latitude + ' ' + position.coords.longitude);
 		var lat = position.coords.latitude;
 	   	var lng = position.coords.longitude;
 	    var myLatlng = new google.maps.LatLng(lat,lng);
@@ -88,22 +113,6 @@ function route(event) {
 		    placeMarker(event.latLng);
 		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
-	}
-	
-	function placeMarker(location) {
-		var marker = new google.maps.Marker({
-		    position: location,
-		    map: map
-		});
-
-		map.setCenter(location);
-	}
-	
-	//onError Callback receives a PositionError object
-	//
-	function onError(error) {
-	   alert('code: '    + error.code    + '\n' +
-	         'message: ' + error.message + '\n');
 	}
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
