@@ -85,7 +85,6 @@ function route(event) {
 	}
 	
 	function placeMarker(map, location) {
-		alert(location.lat() + ' ' + location.lng());
 		var marker = new google.maps.Marker({
 		    position: location,
 		    map: map
