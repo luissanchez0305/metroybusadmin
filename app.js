@@ -69,16 +69,8 @@ function route(event) {
 	//  the current GPS coordinates
 	//
 	var onSuccess = function(position) {
+		alert('success');
 		loadMap(position);
-	}
-	
-	function placeMarker(location) {
-		var marker = new google.maps.Marker({
-		    position: location,
-		    map: map
-		});
-
-		map.setCenter(location);
 	}
 	
 	//onError Callback receives a PositionError object
@@ -92,6 +84,16 @@ function route(event) {
 			
 		}
 	}
+	
+	function placeMarker(location) {
+		var marker = new google.maps.Marker({
+		    position: location,
+		    map: map
+		});
+
+		map.setCenter(location);
+	}
+	
 	function loadMap(location){
 		alert(position.coords.latitude + ' ' + position.coords.longitude);
 		var lat = position.coords.latitude;
