@@ -69,7 +69,6 @@ function route(event) {
 	//  the current GPS coordinates
 	//
 	var onSuccess = function(position) {
-		alert('success');
 		loadMap(position);
 	}
 	
@@ -95,7 +94,6 @@ function route(event) {
 	}
 	
 	function loadMap(position){
-		alert(position.coords.latitude + ' ' + position.coords.longitude);
 		var lat = position.coords.latitude;
 	   	var lng = position.coords.longitude;
 	    var myLatlng = new google.maps.LatLng(lat,lng);
