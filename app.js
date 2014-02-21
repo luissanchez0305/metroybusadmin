@@ -110,7 +110,7 @@ function route(event) {
 		});
 		
 		google.maps.event.addListener(map, 'click', function(event) {
-			alert(event.latLng.latitude + ' ' + event.latLng.longitude);
+			alert(event.latLng.lat() + ' ' + event.latLng.lng());
 		    placeMarker(event.latLng);
 		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
