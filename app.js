@@ -94,7 +94,7 @@ function route(event) {
 		map.setCenter(location);
 	}
 	
-	function loadMap(location){
+	function loadMap(position){
 		alert(position.coords.latitude + ' ' + position.coords.longitude);
 		var lat = position.coords.latitude;
 	   	var lng = position.coords.longitude;
