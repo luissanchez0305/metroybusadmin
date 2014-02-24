@@ -46,7 +46,7 @@ function route(event) {
 //        slider.slide($(page), "right");
     } else if (hash === "#page2") {
         page = merge(detailsPage, {
-        	img: "busroute.jpg", 
+        	img: "busroute.png", 
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
         	map: "<div id=\"map2\" class=\"map-canvas\"></div>"
