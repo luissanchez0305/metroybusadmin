@@ -111,3 +111,7 @@ a {
 .robot > p {
     clear: both;
 }
+
+.nameText{
+    -webkit-user-select: auto !important;
+}

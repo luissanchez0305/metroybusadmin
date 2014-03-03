@@ -40,7 +40,7 @@ function route(event) {
         	img: "Bus-icon.jpg", 
         	title: "Paradas", 
         	instructions: "Click en la parada", 
-        	map: "<div class=\"hide\" id=\"map1Text\"><input type=\"text\" id=\"name\" /><input type=\"button\" value=\"Save\" /></div><div id=\"map1\" class=\"map-canvas\"></div>"
+        	map: "<div class=\"hide\" id=\"map1Text\"><input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div><div id=\"map1\" class=\"map-canvas\"></div>"
         });
         mapId="map1";
 //        slider.slide($(page), "right");
@@ -49,7 +49,7 @@ function route(event) {
         	img: "busroute.png", 
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
-        	map: "<div class=\"hide\" id=\"map2Text\"><input type=\"text\" id=\"name\" /><input type=\"button\" value=\"Save\" /></div><div id=\"map2\" class=\"map-canvas\"></div>"
+        	map: "<div class=\"hide\" id=\"map2Text\"><input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div><div id=\"map2\" class=\"map-canvas\"></div>"
         });
         mapId="map2";
 //        slider.slide($(page), "right");
