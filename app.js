@@ -115,7 +115,7 @@ function route(event) {
 		google.maps.event.addListener(map, 'click', function(event) {
 		    placeMarker(map, event.latLng);
 		    if(mapId == 'map1'){
-		    	showCreateName(mapId, function(){ alert($(this).prev().val()); });
+		    	showCreateName(mapId, function(){ alert($('#' + mapId + 'Text').find('input[type="button"]').prev().val()); });
 		    }
 		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
@@ -124,7 +124,7 @@ function route(event) {
 	var $choosenBtn = $('#chooseRoute');
 	if($choosenBtn.length > 0){
 		$choosenBtn.click(function(){
-	    	showCreateName(mapId, function(){ alert($(this).prev().val()); });			
+	    	showCreateName(mapId, function(){ alert($('#' + mapId + 'Text').find('input[type="button"]').prev().val()); });			
 		})
 	}
 	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
