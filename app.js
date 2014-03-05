@@ -111,7 +111,6 @@ function route(event) {
 		      position: myLatlng,
 		      map: map
 		});
-		alert('map loaded: ' + mapId);
 		
 		google.maps.event.addListener(map, 'click', function(event) {
 		    placeMarker(map, event.latLng);
