@@ -51,7 +51,8 @@ function route(event) {
         	img: "busroute.png", 
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
-        	map: "<div><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select><input type=\"button\" value=\"Escoger\" click=\"chooseRoute\" /></div>"+
+        	map: "<div><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
+        	"<input type=\"button\" value=\"Escoger\" click=\"chooseRoute()\" /></div>"+
         	"<div class=\"hide\" id=\"map2Text\">"+
         	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
         	"<div id=\"map2\" class=\"map-canvas\"></div>"
