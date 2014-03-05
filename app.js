@@ -52,13 +52,15 @@ function route(event) {
         	img: "busroute.png", 
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
-        	map: "<div class=\"hide\" id=\"map2Text\">"+
+        	map: "<div style=\"width:100%;\"><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
+        	"<input type=\"button\" value=\"Escoger\" id=\"chooseRoute\" /></div>"+
+        	"<div class=\"hide\" id=\"map2Text\">"+
         	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
         	"<div id=\"map2\" class=\"map-canvas\"></div>"
         });
         mapId="map2";
 //        slider.slide($(page), "right");
-    } 
+    }
     else {
         page = homePage;
 //        slider.slide($(homePage), "left");
@@ -98,12 +100,12 @@ function route(event) {
 	function loadMap(position){
 		var lat = position.coords.latitude;
 	   	var lng = position.coords.longitude;
-		alert(mapId);
 	    var myLatlng = new google.maps.LatLng(lat,lng);
 		var mapOptions = {
 			      center: myLatlng,
 			      zoom: 12
 			    };
+		
 		var map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 		var marker = new google.maps.Marker({
 		      position: myLatlng,
