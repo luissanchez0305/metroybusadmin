@@ -96,8 +96,8 @@ function route(event) {
 	}
 	
 	function loadMap(position){
-		alert(mapId);
 		var lat = position.coords.latitude;
+		alert(mapId);
 	   	var lng = position.coords.longitude;
 	    var myLatlng = new google.maps.LatLng(lat,lng);
 		var mapOptions = {
