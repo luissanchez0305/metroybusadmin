@@ -52,7 +52,7 @@ function route(event) {
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
         	map: "<div><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
-        	"<input type=\"button\" value=\"Escoger\" click=\"javascript:chooseRoute();\" /></div>"+
+        	"<input type=\"button\" value=\"Escoger\" id=\"chooseRoute\" /></div>"+
         	"<div class=\"hide\" id=\"map2Text\">"+
         	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
         	"<div id=\"map2\" class=\"map-canvas\"></div>"
@@ -124,12 +124,12 @@ function route(event) {
 		//google.maps.event.addDomListener(window, 'load', initialize);	
 	}
 	
-	function chooseRoute(){
+	$('#chooseRoute')click(function(){
 		alert($('#routesContainer').val());
 		if($('#routesContainer').val() == -1){
 			
 		}
-	}
+	});
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
