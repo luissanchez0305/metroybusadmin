@@ -124,7 +124,7 @@ function route(event) {
 		//google.maps.event.addDomListener(window, 'load', initialize);	
 	}
 	
-	$('#chooseRoute')click(function(){
+	$('#chooseRoute').click(function(){
 		alert($('#routesContainer').val());
 		if($('#routesContainer').val() == -1){
 			
