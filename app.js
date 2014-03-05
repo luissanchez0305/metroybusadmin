@@ -63,7 +63,6 @@ function route(event) {
         page = homePage;
 //        slider.slide($(homePage), "left");
     }
-	alert(mapId);
 
     slider.slidePage($(page));   
     
@@ -97,6 +96,7 @@ function route(event) {
 	}
 	
 	function loadMap(position){
+		alert(mapId);
 		var lat = position.coords.latitude;
 	   	var lng = position.coords.longitude;
 	    var myLatlng = new google.maps.LatLng(lat,lng);
