@@ -8,7 +8,7 @@ var homePage =
         '<div class="header"><h1>Administrador</h1></div>' +
         '<div class="scroller">' +
             '<ul class="list">' +
-                '<li><a href="#page1"><img src="images/Bus-icon.jpg" class="titleIcon"/><strong>Paradas</strong></a></li>' +
+                '<li class="hide"><a href="#page1"><img src="images/Bus-icon.jpg" class="titleIcon"/><strong>Paradas</strong></a></li>' +
                 '<li><a href="#page2"><img src="images/busroute.jpg" class="titleIcon"/><strong>Rutas</strong></a></li>' +
                 '<li style="display:none;"><a href="#page3"><strong>Ripple Bot</strong></a></li>' +
             '</ul>' +
@@ -40,7 +40,9 @@ function route(event) {
         	img: "Bus-icon.jpg", 
         	title: "Paradas", 
         	instructions: "Click en la parada", 
-        	map: "<div class=\"hide\" id=\"map1Text\"><input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div><div id=\"map1\" class=\"map-canvas\"></div>"
+        	map: "<div class=\"hide\" id=\"map1Text\">"+
+        	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
+        	"<div id=\"map1\" class=\"map-canvas\"></div>"
         });
         mapId="map1";
 //        slider.slide($(page), "right");
@@ -49,7 +51,10 @@ function route(event) {
         	img: "busroute.png", 
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
-        	map: "<div class=\"hide\" id=\"map2Text\"><input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div><div id=\"map2\" class=\"map-canvas\"></div>"
+        	map: "<div><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select><input type=\"button\" value=\"Escoger\" click=\"chooseRoute\" /></div>"+
+        	"<div class=\"hide\" id=\"map2Text\">"+
+        	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
+        	"<div id=\"map2\" class=\"map-canvas\"></div>"
         });
         mapId="map2";
 //        slider.slide($(page), "right");
@@ -116,6 +121,13 @@ function route(event) {
 		    });
 		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
+	}
+	
+	function chooseRoute(){
+		alert($('#routesContainer').val());
+		if($('#routesContainer').val() == -1){
+			
+		}
 	}
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
