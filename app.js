@@ -115,10 +115,7 @@ function route(event) {
 		google.maps.event.addListener(map, 'click', function(event) {
 		    placeMarker(map, event.latLng);
 		    if(mapId == 'map1'){
-			    $('#' + mapId + 'Text').removeClass('hide');
-			    $('#' + mapId + 'Text').find('input[type="button"]').click(function(){
-			    	alert($(this).prev().val());
-			    });
+		    	showCreateName(mapId, function(){ alert($(this).prev().val()); });
 		    }
 		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
@@ -127,19 +124,25 @@ function route(event) {
 	var $choosenBtn = $('#chooseRoute');
 	if($choosenBtn.length > 0){
 		$choosenBtn.click(function(){
-			alert($('#routesContainer').length);
+	    	showCreateName(mapId, function(){ alert($(this).prev().val()); });			
 		})
 	}
 	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
-function merge(tpl, data) {
-    
+function merge(tpl, data) {    
     return tpl.replace("{{img}}", data.img)
 		    .replace("{{instructions}}", data.instructions)
 		    .replace("{{title}}", data.title)
             .replace("{{map}}", data.map);
+}
+
+function showCreateName(mapId, callback){
+    $('#' + mapId + 'Text').removeClass('hide');
+    $('#' + mapId + 'Text').find('input[type="button"]').click(function(){
+    	callback();
+    });
 }
 
 route();
