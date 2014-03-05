@@ -48,7 +48,6 @@ function route(event) {
 //        slider.slide($(page), "right");
     } 
     else if (hash === "#page2") {
-		alert();
         page = merge(detailsPage, {
         	img: "busroute.png", 
         	title: "Rutas", 
@@ -58,6 +57,7 @@ function route(event) {
         	"<div id=\"map2\" class=\"map-canvas\"></div>"
         });
         mapId="map2";
+		alert(mapId);
 //        slider.slide($(page), "right");
     } /*else if (hash === "#page3") {
         page = merge(detailsPage, {img: "ripplebot.jpg", name: "Ripple Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
