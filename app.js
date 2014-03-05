@@ -52,9 +52,7 @@ function route(event) {
         	img: "busroute.png", 
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
-        	map: "<div style=\"width:100%;\"><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
-        	"<input type=\"button\" value=\"Escoger\" id=\"chooseRoute\" /></div>"+
-        	"<div class=\"hide\" id=\"map2Text\">"+
+        	map: "<div class=\"hide\" id=\"map2Text\">"+
         	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
         	"<div id=\"map2\" class=\"map-canvas\"></div>"
         });
