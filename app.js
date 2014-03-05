@@ -114,15 +114,22 @@ function route(event) {
 		
 		google.maps.event.addListener(map, 'click', function(event) {
 		    placeMarker(map, event.latLng);
-		    $('#' + mapId + 'Text').removeClass('hide');
-		    $('#' + mapId + 'Text').find('input[type="button"]').click(function(){
-		    	alert($(this).prev().val());
-		    });
+		    if(mapId == 'map1'){
+			    $('#' + mapId + 'Text').removeClass('hide');
+			    $('#' + mapId + 'Text').find('input[type="button"]').click(function(){
+			    	alert($(this).prev().val());
+			    });
+		    }
 		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
 	}
 	
-	alert($('#chooseRoute').length);
+	var $choosenBtn = $('#chooseRoute');
+	if($choosenBtn.length > 0){
+		$choosenBtn.click(function(){
+			alert($('#routesContainer').length);
+		})
+	}
 	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
