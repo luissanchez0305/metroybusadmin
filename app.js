@@ -122,7 +122,8 @@ function route(event) {
 		//google.maps.event.addDomListener(window, 'load', initialize);	
 	}
 	
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	alert($('#chooseRoute').length);
+	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
