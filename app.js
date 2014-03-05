@@ -111,9 +111,9 @@ function route(event) {
 		      position: myLatlng,
 		      map: map
 		});
+		alert('map loaded: ' + mapId);
 		
 		google.maps.event.addListener(map, 'click', function(event) {
-			alert('map loaded');
 		    placeMarker(map, event.latLng);
 		    $('#' + mapId + 'Text').removeClass('hide');
 		    $('#' + mapId + 'Text').find('input[type="button"]').click(function(){
