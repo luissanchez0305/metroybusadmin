@@ -46,7 +46,8 @@ function route(event) {
         });
         mapId="map1";
 //        slider.slide($(page), "right");
-    } else if (hash === "#page2") {
+    } 
+    else if (hash === "#page2") {
         page = merge(detailsPage, {
         	img: "busroute.png", 
         	title: "Rutas", 
@@ -124,10 +125,7 @@ function route(event) {
 		//google.maps.event.addDomListener(window, 'load', initialize);	
 	}
 	
-	$('#chooseRoute').click(function(){
-		alert();
-	});
-	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
