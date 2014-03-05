@@ -75,7 +75,6 @@ function route(event) {
 	//
 	var onSuccess = function(position) {
 		loadMap(position);
-		alert();
 	}
 	
 	//onError Callback receives a PositionError object
@@ -107,6 +106,7 @@ function route(event) {
 			      center: myLatlng,
 			      zoom: 12
 			    };
+		alert(mapId);
 		var map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 		var marker = new google.maps.Marker({
 		      position: myLatlng,
