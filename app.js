@@ -10,7 +10,7 @@ var homePage =
             '<ul class="list">' +
                 '<li class="hide"><a href="#page1"><img src="images/Bus-icon.jpg" class="titleIcon"/><strong>Paradas</strong></a></li>' +
                 '<li><a href="#page2"><img src="images/busroute.jpg" class="titleIcon"/><strong>Rutas</strong></a></li>' +
-                '<li style="display:none;"><a href="#page3"><strong>Ripple Bot</strong></a></li>' +
+                '<li class="hide"><a href="#page3"><strong>Ripple Bot</strong></a></li>' +
             '</ul>' +
         '</div>' +
     '</div>';
@@ -55,7 +55,8 @@ function route(event) {
         	map: "<div style=\"width:100%;\"><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
         	"<input type=\"button\" value=\"Escoger\" id=\"chooseRoute\" /></div>"+
         	"<div class=\"hide\" id=\"map2Text\">"+
-        	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
+        	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" />"+
+        	"<input type=\"hidden\" id=\"routeChoosen\" /></div>"+
         	"<div id=\"map2\" class=\"map-canvas\"></div>"
         });
         mapId="map2";
@@ -123,8 +124,16 @@ function route(event) {
 	
 	var $choosenBtn = $('#chooseRoute');
 	if($choosenBtn.length > 0){
+		// ruta escogida del dropdown
 		$choosenBtn.click(function(){
-	    	showCreateName(mapId, function(){ alert($('#' + mapId + 'Text').find('input[type="button"]').prev().val()); });			
+	    	showCreateName(mapId, function(){ 
+	    		$.get('http://mybws.espherasoluciones.com', 
+	    				{service: 2, n: $('#' + mapId + 'Text').find('input[type="button"]').prev().val()}, 
+	    				function(data){
+	    					alert(data);
+	    				}
+	    		);
+	    	});			
 		})
 	}
 	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
