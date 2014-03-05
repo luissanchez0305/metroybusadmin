@@ -75,6 +75,7 @@ function route(event) {
 	//
 	var onSuccess = function(position) {
 		loadMap(position);
+		alert();
 	}
 	
 	//onError Callback receives a PositionError object
