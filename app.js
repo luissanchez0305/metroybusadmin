@@ -51,7 +51,7 @@ function route(event) {
         	img: "busroute.png", 
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
-        	map: "<div><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
+        	map: "<div style=\"width:100%;\"><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
         	"<input type=\"button\" value=\"Escoger\" id=\"chooseRoute\" /></div>"+
         	"<div class=\"hide\" id=\"map2Text\">"+
         	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" /></div>"+
@@ -125,7 +125,7 @@ function route(event) {
 	}
 	
 	$('#chooseRoute').click(function(){
-		alert($('#routesContainer').val());
+		alert();
 	});
 	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
