@@ -126,11 +126,8 @@ function route(event) {
 	
 	$('#chooseRoute').click(function(){
 		alert($('#routesContainer').val());
-		if($('#routesContainer').val() == -1){
-			
-		}
 	});
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
