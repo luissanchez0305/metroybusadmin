@@ -106,7 +106,7 @@ function route(event) {
 			      center: myLatlng,
 			      zoom: 12
 			    };
-		
+		alert(mapId);
 		var map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 		var marker = new google.maps.Marker({
 		      position: myLatlng,
