@@ -53,9 +53,10 @@ function route(event) {
         	title: "Rutas", 
         	instructions: "Traza la ruta", 
         	map: "<div style=\"width:100%;\"><select id=\"routesContainer\"><option value=\"-1\">Nueva</option></select>"+
-        	"<input type=\"button\" value=\"Escoger\" id=\"chooseRoute\" /></div>"+
+        	"<input type=\"button\" value=\"Escoger\" id=\"chooseRoute\" /><input type=\"text\" id=\"nameEdit\" class=\"nameText hide\" />"+
+        	"<input type=\"button\" value=\"Editar\" class=\"hide\" /></div>"+
         	"<div class=\"hide\" id=\"map2Text\">"+
-        	"<input type=\"text\" id=\"name\" class=\"nameText\" /><input type=\"button\" value=\"Save\" />"+
+        	"<input type=\"text\" id=\"nameAdd\" class=\"nameText\" /><input type=\"button\" value=\"Guardar\" />"+
         	"<input type=\"hidden\" id=\"routeChoosen\" /></div>"+
         	"<div id=\"map2\" class=\"map-canvas\"></div>"
         });
@@ -116,7 +117,10 @@ function route(event) {
 		google.maps.event.addListener(map, 'click', function(event) {
 		    placeMarker(map, event.latLng);
 		    if(mapId == 'map1'){
-		    	showCreateName(mapId, function(){ alert($('#' + mapId + 'Text').find('input[type="button"]').prev().val()); });
+		    	showCreateName(mapId, 
+		    			function(){
+		    				
+		    			});
 		    }
 		 });
 		//google.maps.event.addDomListener(window, 'load', initialize);	
@@ -127,16 +131,31 @@ function route(event) {
 		// ruta escogida del dropdown
 		$choosenBtn.click(function(){
 	    	showCreateName(mapId, function(){ 
+	    		// crear ruta
 	    		$.get('http://mybws.espherasoluciones.com', 
 	    				{service: 2, n: $('#' + mapId + 'Text').find('input[type="button"]').prev().val()}, 
 	    				function(data){
-	    					alert(data);
+	    					$('#routeChoosen').val(data);
+	    					$('#nameAdd').addClass('hide');
+	    					$('#nameAdd').next().addClass('hide');
+	    					$('#nameEdit').val($('#nameAdd').val());
+	    					$('#nameAdd').val('');
+	    					$('#nameEdit').removeClass('hide');
+	    					$('#nameEdit').next().removeClass('hide');
+	    					$('#nameEdit').next().click(function(){
+	    						// editar ruta
+	    			    		$.get('http://mybws.espherasoluciones.com', 
+	    			    				{service: 4, i: $('#routeChoosen').val(), n: $('#nameEdit').val() }, 
+	    			    				function(data){
+	    			    					alert('Guardado');
+	    			    				});	    						
+	    					});
+	    					navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	    				}
 	    		);
 	    	});			
 		})
 	}
-	//navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Primitive template processing. In a real-life app, use Handlerbar.js, Mustache.js or another template engine
